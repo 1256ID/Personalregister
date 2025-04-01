@@ -1,10 +1,25 @@
-﻿namespace Personalregister
-{
-    internal class Program
+﻿namespace Personalregister;
+
+internal class Program 
+{   
+    static void Main()
     {
-        static void Main(string[] args)
+        Tools tools = new();
+        int amountOfEmployee = tools.GetAmountOfEmployeesToRegister();
+
+        for (int i = 0; i < amountOfEmployee; i++)
         {
-            Console.WriteLine("Hello, World!");
+            Employee employee = tools.Register(i);
+            tools.Add(employee);
         }
+    
+        Console.WriteLine("\nKlicka på valfri tangent för att skriva ut personalen");
+        Console.ReadLine();
+        
+        tools.PrintOutInfo();
+
     }
+
+    
+
 }
